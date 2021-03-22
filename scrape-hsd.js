@@ -29,9 +29,8 @@ async function getShelters(city, state) {
             const name = $(shelter[0]).text().trim();
             const address = $(shelter[1]).text().trim();
             const number = $(shelter[2]).text().trim();
-            // make sure number as numbers before searching for it
             const fullText = $(entry).text();
-            const idx = fullText.indexOf(number) + number.length;
+            const idx = fullText.indexOf(number || address || name) + number.length;
             const description = fullText.substring(idx).trim();
             let shelterInfo = new Shelter(name, address, number, description);
             shelterNames.push(shelterInfo);
