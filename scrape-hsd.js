@@ -20,14 +20,15 @@ async function getShelters(city, state) {
 
         $('div.tabRow').each((i, entry) => {
             const shelter = $(entry).children();
-            const name = $(shelter[0]).text();
-            const address = $(shelter[1]).text();
-            const number = $(shelter[2]).text();
+            const name = $(shelter[0]).text().trim();
+            const address = $(shelter[1]).text().trim();
+            const number = $(shelter[2]).text().trim();
             let description = '';
             shelter.each((i, line) => {
                 if (i < 3) return;
                 description += '\n' + $(line).text();
             });
+            description = description.trim();
             let shelterInfo = new Shelter(name, address, number, description);
             shelterNames.push(shelterInfo);
         });
