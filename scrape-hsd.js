@@ -8,12 +8,18 @@ function Shelter(name, address, number, description) {
     this.description = description;
 }
 
+function fixedEncodeURIComponent(str) {
+  return encodeURIComponent(str).replace(/ |(\%20)/g, '+');
+}
+
 const HSD_SEARCH = 'https://www.homelessshelterdirectory.org/cgi-bin/widgets/shelters.cgi?'
 async function getShelters(city, state) {
     try {
         const { data } = await axios.get(
-            HSD_SEARCH + `city=${encodeURIComponent(city)}` + `&state=${encodeURIComponent(state)}`
+            HSD_SEARCH + `city=${fixedEncodeURIComponent(city)}` + `&state=${fixedEncodeURIComponent(state)}`
         );
+
+        console.log(HSD_SEARCH + `city=${fixedEncodeURIComponent(city)}` + `&state=${fixedEncodeURIComponent(state)}`);
 
         const $ = cheerio.load(data);
         const shelterNames = [];
@@ -41,13 +47,13 @@ async function getShelters(city, state) {
 };
 
 function testScraping() {
-    let city = 'Sacramento';
+    let city = 'Los Angeles';
     let state = 'CA';
     getShelters(city, state)
         .then((shelterNames) => console.log(shelterNames))
         .catch((error) => console.log(error));
 }
 
-module.exports = { getShelters };
+module.exports = { getShelters, Shelter };
 
 testScraping();

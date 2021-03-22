@@ -13,9 +13,16 @@ app.get('/shelter?', async (req, res) => {
     let state = req.query.state;
     // let start = performance.now();
     let shelterList = await hsd.getShelters(city, state);
+    const familyShelters = []
+    const famMatch = /(family)|(children)|(youth)/ig;
+    for (let i = 0; i < shelterList.length; i++) {
+        let found = (shelterList[i].description.match(famMatch) || shelterList[i].name.match(famMatch));
+        if (found == null) continue;
+        familyShelters.push(shelterList[i].name);
+    }
     // let finish = performance.now();
     // console.log(finish - start);
-    res.send(shelterList);
+    res.send(familyShelters);
 });
 
 app.listen(PORT, () => {
