@@ -52,5 +52,3 @@ function testScraping() {
 }
 
 module.exports = { getShelters, Shelter };
-
-testScraping();
