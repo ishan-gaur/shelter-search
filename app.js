@@ -1,23 +1,19 @@
-const hsd = require('./scrape-hsd')
+const scrape = require('./scrape')
 const express = require('express');
 const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Send shelter lookup requests to /shelter?city={CITY NAME}&state={STATE NAME}')
+  res.send('Send shelter lookup requests to /shelter?city={CITY NAME}&state={STATE NAME}' +
+            '\nCan add optional param &filter with options:\n \t\"family\"')
 });
 
 app.get('/shelter?', async (req, res) => {
-    let city = req.query.city;
-    let state = req.query.state;
-    let shelterList = await hsd.getShelters(city, state);
-    const familyShelters = []
-    const famMatch = /(family)|(children)|(youth)/ig;
-    for (let i = 0; i < shelterList.length; i++) {
-        let found = (shelterList[i].description.match(famMatch) || shelterList[i].name.match(famMatch));
-        if (found == null) continue;
-        familyShelters.push(shelterList[i]);
-    }
+    const city = req.query.city;
+    const state = req.query.state;
+    const filter = req.query.filter;
+    const shelterList = await scrape.getHSDShelters(city, state);
+    const familyShelters = scrape.filterByShelterType(shelterList, filter);
     res.send(familyShelters);
 });
 
