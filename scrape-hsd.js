@@ -2,7 +2,7 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 
 const HSD_BY_CITY = 'https://www.homelessshelterdirectory.org/cgi-bin/id/city.cgi?'
-const getShelters = async (city, state) => {
+async function getShelters(city, state) {
     try {
         const { data } = await axios.get(
             HSD_BY_CITY + `city=${encodeURIComponent(city)}` + `&state=${encodeURIComponent(state)}`
@@ -22,6 +22,14 @@ const getShelters = async (city, state) => {
     }
 };
 
-let city = 'Los Angeles'
-let state = 'CA'
-getShelters(city, state).then((shelterNames) => console.log(shelterNames)).catch((error) => console.log(error));
+function testScraping() {
+    let city = 'Sacramento';
+    let state = 'CA';
+    getShelters(city, state)
+        .then((shelterNames) => console.log(shelterNames))
+        .catch((error) => console.log(error));
+}
+
+testScraping()
+
+module.exports = { getShelters };
