@@ -14,7 +14,7 @@ app.get('/shelter?', async (req, res) => {
     const filter = req.query.filter;
     const shelterList = await scrape.getHSDShelters(city, state);
     const familyShelters = scrape.filterByShelterType(shelterList, filter);
-    res.send(familyShelters);
+    res.send({ shelters: familyShelters });
 });
 
 app.listen(PORT, () => {
