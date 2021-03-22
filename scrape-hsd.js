@@ -25,7 +25,6 @@ async function getShelters(city, state) {
         const shelterNames = [];
 
         $('div.tabRow').each((i, entry) => {
-            if (i > 0) return;
             const shelter = $(entry).children();
             const name = $(shelter[0]).text().trim();
             const address = $(shelter[1]).text().trim();
