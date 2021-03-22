@@ -1,20 +1,37 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 
-const HSD_BY_CITY = 'https://www.homelessshelterdirectory.org/cgi-bin/id/city.cgi?'
+function Shelter(name, address, number, description) {
+    this.name = name;
+    this.address = address;
+    this.number = number;
+    this.description = description;
+}
+
+const HSD_SEARCH = 'https://www.homelessshelterdirectory.org/cgi-bin/widgets/shelters.cgi?'
 async function getShelters(city, state) {
     try {
         const { data } = await axios.get(
-            HSD_BY_CITY + `city=${encodeURIComponent(city)}` + `&state=${encodeURIComponent(state)}`
+            HSD_SEARCH + `city=${encodeURIComponent(city)}` + `&state=${encodeURIComponent(state)}`
         );
 
         const $ = cheerio.load(data);
         const shelterNames = [];
 
-        $('div.layout_post_2.clearfix > div.item_content > h4 > a').each((i, shelter) => {
-            const name = $(shelter).text();
-            shelterNames.push(name);
+        $('div.tabRow').each((i, entry) => {
+            const shelter = $(entry).children();
+            const name = $(shelter[0]).text();
+            const address = $(shelter[1]).text();
+            const number = $(shelter[2]).text();
+            let description = '';
+            shelter.each((i, line) => {
+                if (i < 3) return;
+                description += '\n' + $(line).text();
+            });
+            let shelterInfo = new Shelter(name, address, number, description);
+            shelterNames.push(shelterInfo);
         });
+
         return shelterNames;
     }
     catch (error) {
@@ -30,6 +47,6 @@ function testScraping() {
         .catch((error) => console.log(error));
 }
 
-testScraping()
-
 module.exports = { getShelters };
+
+testScraping();
