@@ -1,10 +1,11 @@
 {
   "name": "shelter-search",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Centralizing shelter listing information from across the internet",
-  "main": "app.js",
+  "main": "search-app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node search-app/app.js"
   },
   "repository": {
     "type": "git",
