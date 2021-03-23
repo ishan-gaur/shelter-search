@@ -9,7 +9,8 @@ Resources:
 Intro to Javascript: https://javascript.info/js
 Javascript Scraping Tutorial: https://www.scrapingbee.com/blog/web-scraping-javascript/
 Deploying with React: https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/
-Docs for each stack component
+https://jasonwatmore.com/post/2020/07/17/react-axios-http-get-request-examples
+Docs for each stack component (praise tailwind and react docs)
 
 tailwind install warning:
 npm WARN @babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.13.12 requires a peer of @babel/core@^7.13.0 but none is installed. You must install peer dependencies yourself.

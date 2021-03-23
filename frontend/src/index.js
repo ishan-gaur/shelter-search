@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import LocationSelector from './LocationSelector';
+import Search from './Search';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LocationSelector />
+    <Search />
   </React.StrictMode>,
   document.getElementById('root')
 );
