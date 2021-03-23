@@ -18,7 +18,7 @@ Resources:
 Intro to Javascript: https://javascript.info/js
 Javascript Scraping Tutorial: https://www.scrapingbee.com/blog/web-scraping-javascript/
 Deploying with React: https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/
-https://jasonwatmore.com/post/2020/07/17/react-axios-http-get-request-examples
+Routing single page: https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm
 Docs for each stack component (praise tailwind and react docs)
 
 tailwind install warning:
