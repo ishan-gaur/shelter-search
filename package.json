@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "description": "Centralizing shelter listing information from across the internet",
   "main": "search-app/app.js",
+  "engines": {
+    "node": "v12.16.2"
+  }
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node search-app/app.js"
+    "start": "node search-app/app.js",
+    "build": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
