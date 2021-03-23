@@ -1,5 +1,9 @@
 Webpage to find family shelters in a city
 
+TODO:
+Autocomplete for locations
+Why isn't filtering working -- see Cleveland, OH
+
 Stack:
 Node backend using Express.
 React frontend with Tailwind for CSS.

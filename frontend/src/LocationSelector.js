@@ -19,7 +19,8 @@ class LocationSelector extends Component {
     const response = await axios.get(
       '/shelter?' + 
       'city=' + encodeURIComponent(this.state.city) + 
-      '&state=' + encodeURIComponent(this.state.state))
+      '&state=' + encodeURIComponent(this.state.state) +
+      '&filter=family')
     const shelters = response.data.shelters;
     console.log(shelters);
     this.props.onSubmit(shelters);

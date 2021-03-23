@@ -12,14 +12,14 @@ function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/ |(\%20)/g, '+');
 }
 
-function filterByShelterType(shelterList, filter = 'none') {
+function filterByShelterType(shelterList, filter = 'family') {
     if (filter == 'none') return shelterList;
     const famMatch = /(family)|(children)|(youth)/ig;
     // REVIEW: is || null needed here?
     shelterList.filter((shelter) => {
         return Boolean(shelter.description.match(famMatch) || 
                        shelter.name.match(famMatch) || 
-                       null); 
+                       false); 
     });
     return shelterList;
 }
