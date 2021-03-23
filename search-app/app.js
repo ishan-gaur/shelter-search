@@ -1,12 +1,10 @@
+const path = require('path');
 const scrape = require('./scrape')
 const express = require('express');
 const app = express();
 const PORT = 5000;
 
-app.get('/', (req, res) => {
-  res.send('Send shelter lookup requests to /shelter?city={CITY NAME}&state={STATE NAME}' +
-            '\nCan add optional param &filter with options:\n \t\"family\"')
-});
+app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
 app.get('/shelter?', async (req, res) => {
     const city = req.query.city;
@@ -16,6 +14,10 @@ app.get('/shelter?', async (req, res) => {
     const familyShelters = scrape.filterByShelterType(shelterList, filter);
     console.log(familyShelters)
     res.json({ shelters: familyShelters });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
 });
 
 app.listen(PORT, () => {

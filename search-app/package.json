@@ -1,0 +1,30 @@
+{
+  "name": "shelter-search",
+  "version": "0.0.1",
+  "description": "Centralizing shelter listing information from across the internet",
+  "main": "search-app/app.js",
+  "engines": {
+    "node": "v12.16.2"
+  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "build": "cd frontend && npm install && npm run build"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishan-gaur/shelter-search.git"
+  },
+  "author": "Ishan Gaur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishan-gaur/shelter-search/issues"
+  },
+  "homepage": "https://github.com/ishan-gaur/shelter-search#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "express": "^4.17.1"
+  }
+}
