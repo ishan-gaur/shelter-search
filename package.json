@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node search-app/app.js",
-    "build": "echo \"done\""
+    "build": "cd frontend && npm run-script build"
   },
   "repository": {
     "type": "git",

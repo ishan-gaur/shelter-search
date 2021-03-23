@@ -3,6 +3,11 @@ Webpage to find family shelters in a city
 TODO:
 Autocomplete for locations
 Why isn't filtering working -- see Cleveland, OH
+Separate view with routing for search results
+Making the entry listings better looking
+Add some amount of branding/guiding description so the purpose and use is obvious
+Nice transitions to go from search home to results
+debug heroku build process
 
 Stack:
 Node backend using Express.
