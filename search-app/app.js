@@ -2,7 +2,7 @@ const path = require('path');
 const scrape = require('./scrape')
 const express = require('express');
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
