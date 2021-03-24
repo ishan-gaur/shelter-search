@@ -34,10 +34,15 @@ function ShelterItem(props) {
     const shelter = props.value;
     return (
         <li className="py-4">
-            <span className="text-xl font-bold">{shelter.name}</span><br/>
-            <span>{shelter.number}</span><br/>
-            <span>{shelter.address}</span><br/>
-            <span>{shelter.description}</span>
+            <div>
+                <span className="text-2xl font-bold">{shelter.name}</span><br/>
+                <span className="text-lg font-semibold">Phone Number: </span><span className="text-lg">{shelter.number}</span><br/>
+                <span className="text-lg font-semibold">Address: </span><span className="text-lg">{shelter.address}</span><br/>
+            </div>
+            <div>
+                <span className="text-lg font-semibold">Description:</span><br/>
+                <span>{shelter.description}</span>
+            </div>
         </li>
     );
 }

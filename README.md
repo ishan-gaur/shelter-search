@@ -8,6 +8,9 @@ Making the entry listings better looking
 Add some amount of branding/guiding description so the purpose and use is obvious
 Nice transitions to go from search home to results
 debug heroku build process
+Regex out the phone numbers so presentation can be standardized
+Consider using other endpoint so nearby shelters instead of just in that city
+Sometimes "\'" don't come out properly, instead �
 
 Stack:
 Node backend using Express.
@@ -15,6 +18,7 @@ React frontend with Tailwind for CSS.
 Def could've (should've) built this without React, but I wanted to learn and try a more complex deployment to Heroku.
 
 Resources:
+Fix the default index.html and favicon, etc
 Intro to Javascript: https://javascript.info/js
 Javascript Scraping Tutorial: https://www.scrapingbee.com/blog/web-scraping-javascript/
 Deploying with React: https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/
